@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "PerfTools",
+	"Description": "Various tools to check performance.",
+	"Category": "Other",
+	"CreatedBy": "ffabian",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "PerfTools",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
