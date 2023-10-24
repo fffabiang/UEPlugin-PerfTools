@@ -4,11 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-
+#include "GameFramework/GameMode.h"
 #include "Engine/World.h"
 #include "Kismet/KismetSystemLibrary.h"
+#include "GameFramework/GameUserSettings.h"
 
 #include "PerfHelpers.generated.h"
+
+
+UENUM(BlueprintType)
+enum class ESettingsPreset : uint8 {
+	Custom	UMETA(DisplayName = "Custom"),
+	Low		UMETA(DisplayName = "Low"),
+	Medium	UMETA(DisplayName = "Medium"),
+	High	UMETA(DisplayName = "High"),
+	Epic	UMETA(DisplayName = "Epic"),
+	Unavailable UMETA(DisplayName = "Unavailable"),
+};
+
 
 UCLASS()
 class PERFTOOLS_API APerfHelpers : public AActor
@@ -27,6 +40,21 @@ public:
 
 	UFUNCTION(BlueprintPure)
 	static bool IsEditorOrDevBuild();
+
+	UFUNCTION(BlueprintPure)
+	static ESettingsPreset GetSettingsPreset();
+
+	UFUNCTION(BlueprintCallable)
+	static void SetSettingsPreset(ESettingsPreset value);
+
+	UFUNCTION(BlueprintPure)
+	static float GetLastGPUBenchmark();
+
+	UFUNCTION(BlueprintPure)
+	static float GetLastCPUBenchmark();
+
+	UFUNCTION(BlueprintCallable)
+	static void RunBenchmarkAndUpdate(UWorld* World);
 
 
 private:
